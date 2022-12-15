@@ -1,11 +1,10 @@
-from asyncore import read
-from socket import socket,error
+from socket import socket
 from pathlib import Path
 def main():
     s=socket()
-    s.connect(("localhost",6030))
+    s.connect(("50.17.81.243",8080))
 
-    print("Conexion con puerto 6030")
+    print("Conexion con puerto 22")
     file_size = Path(r'example.xls').stat().st_size
     while True:
         f=open("example.xls","rb")

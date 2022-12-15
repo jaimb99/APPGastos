@@ -5,13 +5,14 @@ def main():
     s = socket()
 
     # Escuchar peticiones en el puerto 6030.
-    s.bind(("localhost", 6030))
+    s.bind(("172.31.30.112", 8080))
     s.listen(0)
-    print("Escuhando por 6030")
+    print("Escuhando por 22")
     conn, addr = s.accept()
     
     f = open("recibido.xls", "wb")
     fileSize=conn.recv(1024)
+    print(fileSize)
     print("Leyendo archivo...")
     while True:
         try:
