@@ -1,13 +1,14 @@
 from socket import socket
 from pathlib import Path
+#50.17.81.243
 def main():
     s=socket()
-    s.connect(("50.17.81.243",8080))
+    s.connect(("localhost",8080))
 
     print("Conexion con puerto 22")
-    file_size = Path(r'example.xls').stat().st_size
+    file_size = Path(r'recibido.xls').stat().st_size
     while True:
-        f=open("example.xls","rb")
+        f=open("recibido.xls","rb")
         tam=(str)(file_size)
         print(tam)
         print(file_size)

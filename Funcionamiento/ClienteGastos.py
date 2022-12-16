@@ -1,24 +1,25 @@
-from socket import socket, error
-#172.31.30.112
+from socket import socket,error
+#Ip Servidor-->50.17.81.243
+s=socket()
+tipo='1'
+def conexion():
+ s.connect(("localhost",8080))
+ print("Conexion con puerto 8080")
 
-def main():
-    s = socket()
+def enviaTipo():
+    s.send((bytes)(tipo,'ascii'))
 
-    # Escuchar peticiones en el puerto 6030.
-    s.bind(("localhost", 8080))
-    s.listen(0)
-    print("Escuhando por 22")
-    conn, addr = s.accept()
+def recibirExcel():
+
+    f = open("recibido2.xls", "wb")
     
-    f = open("recibido.xls", "wb")
-    fileSize=conn.recv(1024)
+    fileSize=s.recv(1024)    
     print(fileSize)
     print("Leyendo archivo...")
     while True:
         try:
             # Recibir datos del cliente.
-            
-            input_data = conn.recv((int)(fileSize))
+            input_data = s.recv((int)(fileSize))
         except error:
             print("Error de lectura.")
             break
@@ -38,6 +39,6 @@ def main():
     print("El archivo se ha recibido correctamente.")
     f.close()
 
-
-if __name__ == "__main__":
-    main()
+conexion()
+enviaTipo()
+recibirExcel()
