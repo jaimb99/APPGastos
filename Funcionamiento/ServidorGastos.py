@@ -1,5 +1,7 @@
 from socket import socket
 from pathlib import Path
+from xlrd import open_workbook
+from xlutils.copy import copy
 #Ip server-->172.31.30.112
 
 class ServidorGastos ():
@@ -13,14 +15,13 @@ class ServidorGastos ():
         print("Escuchando por 8080")
         self.conn, self.addr=self.s.accept()
 #Escucha lo que el cliente quiere
-#0-->Introducir datos en excel
-#1-->Descargar el excell
+#tipo=0-->Introducir datos en excel
+#tipo=1-->Descargar el excell
     def escuchaTipo(self):
         self.tipo=self.conn.recv(1024)      
     #Le envía el excell al cliente
     def enviaExcel(self):
         print("Enviando archivo...")
-        
         file_size = Path('recibido.xls').stat().st_size
         while True:
             f=open("recibido.xls","rb")
@@ -45,8 +46,11 @@ class ServidorGastos ():
         self.s.close()
         f.close()
         print("El archivo se envió correctamente")
+    
+#Aquí modificamos el excell con los datos obtenidos.
+    def modificaExcell(self):
         
-
+    
 
 #Arranca para empezar a escuchar
     def arranca(self):
