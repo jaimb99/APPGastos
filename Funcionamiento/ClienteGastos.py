@@ -39,6 +39,7 @@ def recibirExcel():
     print("El archivo se ha recibido correctamente.")
     f.close()
 
+
 conexion()
 enviaTipo()
 recibirExcel()
