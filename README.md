@@ -1,4 +1,7 @@
-# Env-o-y-construccion-de-excel-cliente-servidor
+# Envio-y-construccion-de-excel-cliente-servidor
+# PARA CUALQUIER USO ASEGURARSE DEL CAMBIO DE IP, AHORA SOLO ESTÁ CON TU SERVER EN LOCAL
+
+
 Consiste en una aplicación python en la que:
 Tenemos una concexión cliente-servidor
 El cliente elige si manda o recibe los datos
